@@ -46,11 +46,11 @@ function createPackageJson(projectPath: string, projectName: string, options: an
   const packageJsonContent = {
     name: projectName,
     version: "1.0.0",
-    main: options.language === 'ts' ? "src/app.ts" : "src/app.js",
+    main: options.language === 'TypeScript' ? "src/app.ts" : "src/app.js",
     scripts: {
-      start: `node src/app.${options.language === 'ts' ? 'ts' : 'js'}`,
-      dev: `nodemon src/app.${options.language === 'ts' ? 'ts' : 'js'}`,
-      build: options.language === 'ts' ? "tsc" : undefined,
+      start: `node src/app.${options.language === 'TypeScript' ? 'ts' : 'js'}`,
+      dev: `nodemon src/app.${options.language === 'TypeScript' ? 'ts' : 'js'}`,
+      build: options.language === 'TypeScript' ? "tsc" : undefined,
     },
     dependencies: {
       express: "^4.17.1",
@@ -59,7 +59,7 @@ function createPackageJson(projectPath: string, projectName: string, options: an
       ...(options.caching ? { "node-cache": "^5.1.2" } : {}),
     },
     devDependencies: {
-      ...(options.language === 'ts' ? { typescript: "^4.0.0", "@types/node": "^14.0.0", "@types/express": "^4.17.8" } : {}),
+      ...(options.language === 'TypeScript' ? { typescript: "^4.0.0", "@types/node": "^14.0.0", "@types/express": "^4.17.8" } : {}),
       nodemon: "^2.0.7",
     },
   };
@@ -89,15 +89,13 @@ function addMongoDBConnection(options: any) {
 }
 
 export async function createProjectFiles(projectName: string, options: any) {
-
-
   await showBanner();
   const spinner = startSpinner('Creating project structure based on user options...');
   spinner.start();
   await new Promise((resolve) => setTimeout(resolve, 2000));
   spinner.stop();
-  
 
+  
   const projectPath = path.join(process.cwd(), projectName);
   const srcDir = path.join(projectPath, 'src');
 
@@ -127,7 +125,7 @@ export async function createProjectFiles(projectName: string, options: any) {
   createEnvFile(projectPath, options);
 
   // Create basic structure based on TypeScript/JavaScript
-  const appFileName = options.language === 'ts' ? 'app.ts' : 'app.js';
+  const appFileName = options.language === 'TypeScript' ? 'app.ts' : 'app.js';
   const appFileContent = `
     import express from 'express';
     import dotenv from 'dotenv';
@@ -161,7 +159,7 @@ export async function createProjectFiles(projectName: string, options: any) {
 
   // Add node-cache if caching is enabled
   if (options.caching) {
-    const cacheFileName = options.language === 'ts' ? 'cache.ts' : 'cache.js';
+    const cacheFileName = options.language === 'TypeScript' ? 'cache.ts' : 'cache.js';
     writeFile(path.join(srcDir, cacheFileName), `
       const NodeCache = require('node-cache');
       const cache = new NodeCache();
