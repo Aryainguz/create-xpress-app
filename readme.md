@@ -56,4 +56,3 @@ For questions or support, please reach out to me at [aryaninguz369@gmail.com](ma
 ---
 
 Thank you for using **Create Xpress App**! We hope it helps you kickstart your Express.js projects with ease. Happy coding! 🎉
-```
