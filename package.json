@@ -1,6 +1,6 @@
 {
   "name": "create-xpress-app",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "CLI tool for creating Express.js applications with TypeScript",
   "bin": {
     "create-xpress-app": "./dist/main.js"
