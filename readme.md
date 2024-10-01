@@ -45,10 +45,6 @@ npx create-xpress-app my-awesome-app
 
 Follow the prompts to choose your project options, and watch as your application is set up automatically!
 
-## 📖 Documentation
-
-For more detailed documentation, including guides on how to use specific features, please refer to the [Wiki](https://github.com/yourusername/create-xpress-app/wiki) (replace with actual link).
-
 ## 📞 Contact
 
 For questions or support, please reach out to me at [aryaninguz369@gmail.com](mailto:aryaninguz369@gmail.com).
